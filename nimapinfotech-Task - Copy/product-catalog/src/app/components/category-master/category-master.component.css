@@ -1,0 +1,32 @@
+.category-container {
+    margin: 20px auto;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-container input {
+    width: calc(70% - 10px);
+    margin-right: 10px;
+  }
+  
+  .category-container button {
+    width: calc(30% - 10px);
+  }
+  
+  .category-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .category-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .category-list li:last-child {
+    border-bottom: none;
+  }
+  

@@ -1,0 +1,69 @@
+/* Basic Styling */
+.form-container {
+  margin: 20px 0;
+}
+
+.input-field, .select-field {
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.add-btn {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.product-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.product-table th, .product-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: #f2f2f2;
+}
+
+.edit-btn, .save-btn, .delete-btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination-btn:disabled {
+  background-color: #e0e0e0;
+}

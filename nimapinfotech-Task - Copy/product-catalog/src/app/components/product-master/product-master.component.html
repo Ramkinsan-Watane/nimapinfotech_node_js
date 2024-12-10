@@ -1,0 +1,98 @@
+<h2>Product Master</h2>
+
+<!-- Add New Product -->
+<div class="form-container">
+  <input
+    [(ngModel)]="newProductName"
+    placeholder="Enter Product Name"
+    type="text"
+    class="input-field"
+    aria-label="Product Name"
+  />
+  <select [(ngModel)]="selectedCategoryId" class="select-field" aria-label="Category">
+    <option *ngFor="let category of categories" [value]="category.id">
+      {{ category.name }}
+    </option>
+  </select>
+  <button (click)="addProduct()" class="add-btn" [disabled]="!newProductName || !selectedCategoryId">
+    Add Product
+  </button>
+</div>
+
+<!-- Product List -->
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Category Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+
+      <!-- Product Name (Editable) -->
+      <td *ngIf="editingProduct?.id !== product.id">
+        {{ product.productName }}
+      </td>
+      <td *ngIf="editingProduct?.id === product.id">
+        <input
+          [(ngModel)]="editingProduct.productName"
+          class="input-edit"
+          aria-label="Edit Product Name"
+        />
+      </td>
+
+      <!-- Category Name -->
+      <td>{{ product.categoryName }}</td>
+
+      <!-- Actions: Edit, Save, Delete -->
+      <td>
+        <button
+          *ngIf="editingProduct?.id !== product.id"
+          (click)="editProduct(product)"
+          class="edit-btn"
+        >
+          Edit
+        </button>
+        <button
+          *ngIf="editingProduct?.id === product.id"
+          (click)="updateProduct()"
+          class="save-btn"
+          [disabled]="!editingProduct.productName.trim()"
+        >
+          Save
+        </button>
+        <button
+          (click)="deleteProduct(product.id)"
+          class="delete-btn"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+  <button
+    (click)="changePage(false)"
+    [disabled]="page === 1"
+    class="pagination-btn"
+    aria-label="Previous Page"
+  >
+    Previous
+  </button>
+  <span>Page {{ page }} of {{ totalPages }}</span>
+  <button
+    (click)="changePage(true)"
+    [disabled]="page === totalPages"
+    class="pagination-btn"
+    aria-label="Next Page"
+  >
+    Next
+  </button>
+</div>
